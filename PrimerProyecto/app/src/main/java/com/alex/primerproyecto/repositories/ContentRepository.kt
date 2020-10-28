@@ -7,18 +7,18 @@ import com.alex.primerproyecto.roomDB.ContentDB
 
 
 class ContentRepository(context: Context) {
-    private val contactDB = ContentDB.getInstance(context)
-    private val contactDAO = contactDB.contentDAO()
+    private val registrosDB = ContentDB.getInstance(context)
+    private val registrosDAO = registrosDB.contentDAO()
 
     suspend fun insertContent(content: Content) {
-        contactDAO.insertContent(content)
+        registrosDAO.insertContent(content)
     }
 
     suspend fun getAllContents(): List<Content> {
-        return contactDAO.getAllContentSync()
+        return registrosDAO.getAllContentSync()
     }
 
     fun getAllContentLiveData(): LiveData<List<Content>>{
-        return contactDAO.getAllContent()
+        return registrosDAO.getAllContent()
     }
 }
